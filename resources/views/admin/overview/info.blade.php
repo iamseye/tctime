@@ -20,31 +20,31 @@
                     <div class="table-row">
                         <div class="table-cell title">網站關鍵字</div>
                         <div class="table-cell">
-                            <input type="text" name="" placeholder="請輸入關鍵字，並以逗號隔開" />
+                            {!! Form::text('keyword', null, ['placeholder'=>'請輸入關鍵字，並以逗號隔開']) !!}
                         </div>
                     </div>
                     <div class="table-row">
                         <div class="table-cell title">網站基本敘述</div>
                         <div class="table-cell">
-                            <textarea></textarea>
+                            {!! Form::textarea('description', null) !!}
                         </div>
                     </div>
                     <div class="table-row">
                         <div class="table-cell title">Logo</div>
                         <div class="table-cell">
-                            <input type="file">
+                            {!! Form::file('logo', null) !!}
                         </div>
                     </div>
                     <div class="table-row">
                         <div class="table-cell title">favicon</div>
                         <div class="table-cell">
-                            <input type="file">
+                            {!! Form::file('favicon', null) !!}
                         </div>
                     </div>
 
                 </div>
                 <div class="buttonArea">
-                    <input type="submit" value="修改">
+                    {!! Form::submit('修改')!!}
                 </div>
 
             {!! Form::close() !!}

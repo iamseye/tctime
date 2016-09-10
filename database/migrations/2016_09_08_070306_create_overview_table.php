@@ -28,7 +28,6 @@ class CreateOverviewTable extends Migration
             $table->string('contact_phone');
             $table->string('contact_email');
             $table->string('contact_add');
-            kk
             $table->rememberToken();
             $table->timestamps();
         });

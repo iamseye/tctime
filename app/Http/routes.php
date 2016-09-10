@@ -26,11 +26,23 @@ Route::auth();
 //backend
 Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'admin'], function($router) {
 
-    Route::get('/', function () {
-        return view('welcome');
+    Route::resource('/','IndexController');
+
+    Route::group(['prefix' => 'overview'], function () {
+        Route::get('/','InfoController@editInfo');
+        Route::get('/info','InfoController@editInfo');
+        Route::get('/indexInfo','InfoController@editIndexInfo');
+        Route::get('/about','InfoController@editAboutUs');
+
     });
+
+    Route::resource('/tour','TourController');
+    Route::resource('/booking','BookingController');
+    Route::resource('/news','NewsController');
+    Route::resource('/msg','MsgController');
+
+
 
 });
 
 
-Route::get('/home', 'HomeController@index');
