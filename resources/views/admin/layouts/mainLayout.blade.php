@@ -11,8 +11,9 @@
     <link rel="stylesheet" type="text/css" href="{{url('css/table.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('css/inside.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('css/reset.css')}}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-@yield('css')
+    @yield('css')
 
 </head>
 
@@ -31,10 +32,10 @@
             <ul id="mainMenu">
                 <a href="{{url('admin/')}}"><li>總覽</li></a>
                 <a href="{{url('admin/overview/')}}"><li class="this">頁面資訊</li></a>
-                <a href="./tour.html"><li>導覽管理</li></a>
-                <a href="./order.html"><li>預約表單</li></a>
-                <a href="./news.html"><li>最新消息</li></a>
-                <a href="./guestbook.html"><li>查看留言</li></a>
+                <a href="{{url('admin/tour/')}}"><li>導覽管理</li></a>
+                <a href="{{url('admin/booking/')}}"><li>預約表單</li></a>
+                <a href="{{url('admin/news/cate/note')}}"><li>最新消息</li></a>
+                <a href="{{url('admin/msg/')}}"><li>查看留言</li></a>
             </ul>
         </div>
     </div>
@@ -58,7 +59,7 @@
         <a href="./tour.html"><li>導覽管理</li></a>
         <a href="./order.html"><li>預約表單</li></a>
         <a href="./news.html"><li>最新消息</li></a>
-        <a href="./guestbook.html"><li>查看留言</li></a>
+        <a href="{{url('admin/msg/')}}"><li>查看留言</li></a>
     </ul>
 </div>
 
@@ -74,6 +75,49 @@
 <script type="text/javascript" src="{{url('js/jquery-ui.min.js')}}"></script>
 <script type="text/javascript" src="{{url('js/menu.js')}}"></script>
 <script type="text/javascript" src="{{url('js/content.js')}}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src='https://cdn.tinymce.com/4/tinymce.min.js'></script>
+
+<script>
+    //tinymce editor
+    tinymce.init({
+        selector: '.mcetextarea'
+    });
+
+    //check delete Modal
+    function checkDel(giveUrl,id){
+
+        var url=giveUrl;
+
+        $('#checkModal').modal('show');
+
+        $('#checkModal').modal().one('click', '#checkDel', function () {
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                }
+            })
+
+            $.ajax({
+                type: "DELETE",
+                url: url + '/' + id,
+                success: function (data) {
+                    console.log(data);
+                    location.reload();
+
+                },
+                error: function (data) {
+                    console.log('Error:', data);
+                }
+            });
+
+            $('#checkModal').modal('hide');
+        });
+
+    }
+</script>
 
 @yield('script')
 

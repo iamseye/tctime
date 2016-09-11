@@ -12,7 +12,17 @@ class CreateMessagesTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('messages', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('phone');
+            $table->string('email');
+            $table->string('title');
+            $table->longText('content');
+            $table->string('status');
+            $table->rememberToken();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -22,6 +32,6 @@ class CreateMessagesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('messages');
     }
 }

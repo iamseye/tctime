@@ -12,6 +12,10 @@ input[type="number"]{
 	border:#aaa 1px solid;
 }
 
+input[type=file] {
+	display: inline-block !important;
+}
+
 input[type="button"], input[type="reset"], input[type="submit"]{
 	display: inline-block;
 	position: relative;

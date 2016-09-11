@@ -6,35 +6,35 @@
     @include('admin.layouts._subMenu')
 
     <div id="deatailArea">
-        <ul id="path">
-            <a href="./index.html"><li>後台</li></a>
-            <a href="./info.html"><li>頁面資訊</li></a>
-            <a href="./info.html"><li>網頁資訊</li></a>
-        </ul>
+
+        {!! Breadcrumbs::render('about') !!}
+
+        @include('layouts._errorMsg')
 
         <div id="deatail">
 
-            <form action="" method="">
-                <div class="cross">
-                    <div class="cross-row">
-                        <div class="cross-cell title">理念故事</div>
-                        <div class="cross-cell">
-                            <textarea></textarea>
-                        </div>
-                    </div>
+            {!! Form::model($overview,['method'=>'PATCH', 'url'=>'admin/overview/about/update/'.$overview->id]) !!}
 
-                    <div class="cross-row">
-                        <div class="cross-cell title">團隊成員</div>
-                        <div class="cross-cell">
-                            <textarea></textarea>
-                        </div>
+            <div class="table">
+                <div class="table-row">
+                    <div class="table-cell title">理念故事</div>
+                    <div class="table-cell">
+                        {!! Form::textArea('about', null,['class'=>'mcetextarea']) !!}
                     </div>
                 </div>
-                <div class="buttonArea">
-                    <input type="submit" value="修改">
+                <div class="table-row">
+                    <div class="table-cell title">團隊成員</div>
+                    <div class="table-cell">
+                        {!! Form::textArea('about_team_intro', null,['class'=>'mcetextarea']) !!}
+                    </div>
                 </div>
-            </form>
 
+            </div>
+            <div class="buttonArea">
+                {!! Form::submit('修改')!!}
+            </div>
+
+            {!! Form::close() !!}
 
         </div>
     </div>

@@ -31,17 +31,20 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     Route::group(['prefix' => 'overview'], function () {
         Route::get('/','InfoController@editInfo');
         Route::get('/info','InfoController@editInfo');
+        Route::patch('/info/update/{id}','InfoController@updateInfo');
         Route::get('/indexInfo','InfoController@editIndexInfo');
+        Route::patch('/indexInfo/update/{id}','InfoController@updateIndexInfo');
         Route::get('/about','InfoController@editAboutUs');
-
+        Route::patch('/about/update/{id}','InfoController@updateAboutUs');
     });
 
     Route::resource('/tour','TourController');
     Route::resource('/booking','BookingController');
+
     Route::resource('/news','NewsController');
+    Route::get('/news/cate/{cate}','NewsController@showCatePage');
+
     Route::resource('/msg','MsgController');
-
-
 
 });
 
