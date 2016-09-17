@@ -23,14 +23,13 @@
 
     <div id="header" class="shadow">
         <ul id="accountBox" class="wrapper">
-            <a href=""><li>登出</li></a>
-            <a href=""><li>網頁前台</li></a>
+            <a href="{{url('/logout')}}"><li>登出</li></a>
+            <a href="{{url('/')}}"><li>網頁前台</li></a>
         </ul>
         <div class="wrapper">
             <img id="logo" src="{{url('images/logo.png')}}" />
             <h1>TC TimeWalk 後台管理系統</h1>
             <ul id="mainMenu">
-                <a href="{{url('admin/')}}"><li>總覽</li></a>
                 <a href="{{url('admin/overview/')}}"><li class="this">頁面資訊</li></a>
                 <a href="{{url('admin/tour/')}}"><li>導覽管理</li></a>
                 <a href="{{url('admin/booking/')}}"><li>預約表單</li></a>
@@ -54,11 +53,10 @@
 
 <div id="BgMenu">
     <ul id="footerMenu">
-        <a href="./index.html"><li>總覽</li></a>
-        <a href="./info.html"><li class="this">頁面資訊</li></a>
-        <a href="./tour.html"><li>導覽管理</li></a>
-        <a href="./order.html"><li>預約表單</li></a>
-        <a href="./news.html"><li>最新消息</li></a>
+        <a href="{{url('admin/overview/')}}"><li class="this">頁面資訊</li></a>
+        <a href="{{url('admin/tour/')}}"><li>導覽管理</li></a>
+        <a href="{{url('admin/booking/')}}"><li>預約表單</li></a>
+        <a href="{{url('admin/news/cate/note')}}"><li>最新消息</li></a>
         <a href="{{url('admin/msg/')}}"><li>查看留言</li></a>
     </ul>
 </div>

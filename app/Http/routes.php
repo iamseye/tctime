@@ -26,7 +26,7 @@ Route::auth();
 //backend
 Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'admin'], function($router) {
 
-    Route::resource('/','IndexController');
+    Route::resource('/','InfoController@editInfo');
 
     Route::group(['prefix' => 'overview'], function () {
         Route::get('/','InfoController@editInfo');
@@ -39,7 +39,13 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     });
 
     Route::resource('/tour','TourController');
+    Route::post('/tour/search','TourController@search');
+    Route::get('/tour/booking/{tour_id}','TourController@booking');
+
+
     Route::resource('/booking','BookingController');
+    Route::post('/booking/search','BookingController@search');
+
 
     Route::resource('/news','NewsController');
     Route::get('/news/cate/{cate}','NewsController@showCatePage');

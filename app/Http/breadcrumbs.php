@@ -96,3 +96,44 @@ Breadcrumbs::register('messages_detail', function($breadcrumbs)
     $breadcrumbs->parent('messages');
     $breadcrumbs->push('留言內容');
 });
+
+//----tour
+
+Breadcrumbs::register('tours', function($breadcrumbs)
+{
+    $breadcrumbs->parent('index');
+    $breadcrumbs->push('導覽管理', url('admin/tour'));
+});
+
+// Index > Tours > add
+
+Breadcrumbs::register('tours_add', function($breadcrumbs)
+{
+    $breadcrumbs->parent('tours');
+    $breadcrumbs->push('新增導覽');
+});
+
+
+// Index > Tours > add
+
+Breadcrumbs::register('tours_edit', function($breadcrumbs)
+{
+    $breadcrumbs->parent('tours');
+    $breadcrumbs->push('編輯導覽');
+});
+
+//----booking
+
+Breadcrumbs::register('booking', function($breadcrumbs)
+{
+    $breadcrumbs->parent('index');
+    $breadcrumbs->push('預約表單', url('admin/booking'));
+});
+
+// Index > booking > detail
+
+Breadcrumbs::register('booking_detail', function($breadcrumbs)
+{
+    $breadcrumbs->parent('booking');
+    $breadcrumbs->push('編輯表單');
+});

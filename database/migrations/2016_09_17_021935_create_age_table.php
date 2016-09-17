@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLocationsTable extends Migration
+class CreateAgeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,12 @@ class CreateLocationsTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('ages', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('range');
+            $table->rememberToken();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -22,6 +27,7 @@ class CreateLocationsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('ages');
+
     }
 }
