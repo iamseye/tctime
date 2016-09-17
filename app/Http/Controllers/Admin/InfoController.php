@@ -39,6 +39,13 @@ class InfoController extends Controller
         return view('admin.overview.about',compact('overview'));
     }
 
+    public function editContact()
+    {
+        $overview=Overview::all()->first();
+
+        return view('admin.overview.contact',compact('overview'));
+    }
+
 
     public function updateInfo(infoRequest $request,$id)
     {
@@ -100,6 +107,15 @@ class InfoController extends Controller
         $this->succMsg($request,'Data updated');
 
         return redirect('admin/overview/about');
+
+    }
+
+    public function updateContact(Request $request,$id)
+    {
+        Overview::find($id)->update($request->all());
+        $this->succMsg($request,'Data updated');
+
+        return redirect('admin/overview/contact');
 
     }
 

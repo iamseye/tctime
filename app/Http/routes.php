@@ -36,6 +36,9 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
         Route::patch('/indexInfo/update/{id}','InfoController@updateIndexInfo');
         Route::get('/about','InfoController@editAboutUs');
         Route::patch('/about/update/{id}','InfoController@updateAboutUs');
+        Route::get('/contact','InfoController@editContact');
+        Route::patch('/contact/update/{id}','InfoController@updateContact');
+
     });
 
     Route::resource('/tour','TourController');

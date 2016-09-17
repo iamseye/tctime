@@ -36,6 +36,13 @@ Breadcrumbs::register('about', function($breadcrumbs)
     $breadcrumbs->push('關於我們', url('admin/overview/about'));
 });
 
+// Index > Overview > info
+Breadcrumbs::register('contact', function($breadcrumbs)
+{
+    $breadcrumbs->parent('overview');
+    $breadcrumbs->push('聯絡資訊');
+});
+
 
 //----news
 
