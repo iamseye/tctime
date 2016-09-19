@@ -75,12 +75,20 @@
 <script type="text/javascript" src="{{url('js/content.js')}}"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<script src='https://cdn.tinymce.com/4/tinymce.min.js'></script>
+<script src='{{url('plugs/tinymce/js/tinymce/tinymce.min.js')}}'></script>
 
 <script>
     //tinymce editor
     tinymce.init({
-        selector: '.mcetextarea'
+        selector: '.mcetextarea',
+        height: 500,
+        plugins: [
+            "advlist autolink lists link image charmap print preview anchor",
+            "searchreplace visualblocks code fullscreen",
+            "insertdatetime media table contextmenu paste jbimages"
+        ],
+        toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image jbimages",
+        relative_urls: false
     });
 
     //check delete Modal
