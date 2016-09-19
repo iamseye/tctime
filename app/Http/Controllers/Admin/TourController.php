@@ -69,9 +69,11 @@ class TourController extends Controller
                 for($i = strtotime($weeks[$j], strtotime($start_date)); $i <= $endDate; $i = strtotime('+1 week', $i))
                 {
                     $regular_week_date= date('Y-m-d', $i);
+
                     //combine date and time
-                    $tour_start_time= date('Y-m-d H:i:s',strtotime($regular_week_date.' '.($weeks_start[$j]).':00'));
-                    $tour_end_time= date('Y-m-d H:i:s',strtotime($regular_week_date.' '.($weeks_end[$j]).':00'));
+                    $tour_start_time= date('Y-m-d H:i:s',strtotime($regular_week_date.' '.($weeks_start[$j])));
+                    $tour_end_time= date('Y-m-d H:i:s',strtotime($regular_week_date.' '.($weeks_end[$j])));
+
 
                     $tour=Tours::create($request->all());
                     $tour->regular_tour_id=$regular_tour->id;
