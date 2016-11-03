@@ -33,7 +33,7 @@
                 <a href="{{url('admin/overview/')}}"><li class="this">頁面資訊</li></a>
                 <a href="{{url('admin/tour/')}}"><li>導覽管理</li></a>
                 <a href="{{url('admin/booking/')}}"><li>預約表單</li></a>
-                <a href="{{url('admin/news/cate/note')}}"><li>最新消息</li></a>
+                <a href="{{url('admin/news/cate/note')}}"><li>編輯文章</li></a>
                 <a href="{{url('admin/msg/')}}"><li>查看留言</li></a>
             </ul>
         </div>

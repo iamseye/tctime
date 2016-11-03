@@ -17,7 +17,6 @@ class Overview extends Model
         'video_title',
         'video_content',
         'about',
-        'about_team_intro',
         'contact_phone',
         'contact_email',
         'contact_add'

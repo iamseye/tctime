@@ -11,7 +11,17 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'indexController@index');
+Route::get('/about', 'infoController@about');
+Route::get('/news', 'newsController@news');
+Route::get('/blog', 'newsController@article');
+Route::get('/news/{id}', 'newsController@show');
+Route::resource('/tour','tourController');
+Route::post('/tour/search','tourController@search');
+Route::post('/tour/booking','tourController@booking');
+
+
+
 
 
 Route::controllers([

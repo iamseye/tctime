@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Locations;
+use App\RegularDates;
 use App\RegularTours;
 use App\Tours;
 use Illuminate\Http\Request;
@@ -32,11 +33,10 @@ class TourController extends Controller
 
     public function store(Requests\creaetTourRequest $request)
     {
-
         if($request->get('schedule_type')=='regular')
         {
-            $regular_tour=new RegularTours;
-            $regular_tour->save();
+            $tour=Tours::create($request->all());
+
             if ($request->hasFile('picture')) {
 
                 $file = $request->file('picture');
@@ -44,9 +44,22 @@ class TourController extends Controller
                 if ($file->isValid()) {
                     $extension=$file->getClientOriginalExtension();
 
-                    $fileName = 'R'.$regular_tour->id.'_'.time().'.'.$extension;
+                    $fileName = 'R'.$tour->id.'_'.time().'.'.$extension;
                     $destinationPath = base_path() . '/public/images/tours/';
                     Image::make($file)->save($destinationPath . $fileName);
+                }
+            }
+
+            if ($request->hasFile('picture_list')) {
+
+                $file = $request->file('picture_list');
+
+                if ($file->isValid()) {
+                    $extension=$file->getClientOriginalExtension();
+
+                    $list_fileName = 'List_R'.$tour->id.'_'.time().'.'.$extension;
+                    $destinationPath = base_path() . '/public/images/tours/';
+                    Image::make($file)->save($destinationPath . $list_fileName);
                 }
             }
 
@@ -54,6 +67,10 @@ class TourController extends Controller
             //count which dates have to create tours
             $end_date=$request->get('tour_end_time');
             $start_date=$request->get('tour_start_time');
+            $tour_end_date_time=strtotime($end_date);
+            $tour_start_date_time=strtotime($start_date);
+
+
 
             //regular weeks and time
             $weeks=$request->get('week');
@@ -64,34 +81,31 @@ class TourController extends Controller
 
             for($j=0;$j<sizeof($weeks);$j++)
             {
-                $endDate = strtotime($end_date);
 
-                for($i = strtotime($weeks[$j], strtotime($start_date)); $i <= $endDate; $i = strtotime('+1 week', $i))
+                for($i = strtotime($weeks[$j], $tour_start_date_time); $i <= $tour_end_date_time; $i = strtotime('+1 week', $i))
                 {
                     $regular_week_date= date('Y-m-d', $i);
 
+                    $week_start_H_m=date_format(date_create($weeks_start[$j]), 'H:i');
+                    $week_end_H_m=date_format(date_create($weeks_end[$j]), 'H:i');
+
                     //combine date and time
-                    $tour_start_time= date('Y-m-d H:i:s',strtotime($regular_week_date.' '.($weeks_start[$j])));
-                    $tour_end_time= date('Y-m-d H:i:s',strtotime($regular_week_date.' '.($weeks_end[$j])));
+                    $tour_all_dates=$regular_week_date.' ('.$weeks[$j].') '.($week_start_H_m).'-'.($week_end_H_m);
 
-
-                    $tour=Tours::create($request->all());
-                    $tour->regular_tour_id=$regular_tour->id;
-                    $tour->picture=$fileName;
-                    $tour->tour_start_time=$tour_start_time;
-                    $tour->tour_end_time=$tour_end_time;
-                    $tour->save();
+                    $regular_dates= new RegularDates();
+                    $regular_dates->date=$tour_all_dates;
+                    $regular_dates->tours_id=$tour->id;
+                    $regular_dates->save();
 
                 }
                 $weekStr=$weekStr.$weeks[$j].',';
             }
 
-            $regular_tour->title = $request->get('title');
-            $regular_tour->tour_id=$tour->id;
-            $regular_tour->week=$weekStr;
-            $regular_tour->tour_start_date=$start_date;
-            $regular_tour->tour_end_date=$end_date;
-            $regular_tour->save();
+            $tour->picture=$fileName;
+            $tour->picture_list=$list_fileName;
+
+            $tour->weeks=$weekStr;
+            $tour->save();
 
         }
         else
@@ -117,8 +131,22 @@ class TourController extends Controller
                 }
             }
 
-            $tour->picture=$fileName;
 
+            if ($request->hasFile('picture_list')) {
+
+                $file = $request->file('picture_list');
+
+                if ($file->isValid()) {
+                    $extension=$file->getClientOriginalExtension();
+
+                    $list_fileName = 'List_O'.$tour->id.'_'.time().'.'.$extension;
+                    $destinationPath = base_path() . '/public/images/tours/';
+                    Image::make($file)->save($destinationPath . $list_fileName);
+                }
+            }
+
+            $tour->picture=$fileName;
+            $tour->picture_list=$list_fileName;
             $tour->save();
         }
 
@@ -136,6 +164,42 @@ class TourController extends Controller
     public function update(Request $request, $id)
     {
         Tours::find($id)->update($request->all());
+        $tour=Tours::find($id);
+
+
+        if ($request->hasFile('picture')) {
+
+            $file = $request->file('picture');
+
+            if ($file->isValid()) {
+                $extension=$file->getClientOriginalExtension();
+
+                $fileName = 'R'.$id.'_'.time().'.'.$extension;
+                $destinationPath = base_path() . '/public/images/tours/';
+                Image::make($file)->save($destinationPath . $fileName);
+            }
+
+            $tour->picture=$fileName;
+
+        }
+
+        if ($request->hasFile('picture_list')) {
+
+            $file = $request->file('picture_list');
+
+            if ($file->isValid()) {
+                $extension=$file->getClientOriginalExtension();
+
+                $list_fileName = 'List_R'.$id.'_'.time().'.'.$extension;
+                $destinationPath = base_path() . '/public/images/tours/';
+                Image::make($file)->save($destinationPath . $list_fileName);
+            }
+
+            $tour->picture_list=$list_fileName;
+
+        }
+
+        $tour->save();
 
         $this->succMsg($request,'Data updated');
 
@@ -150,7 +214,6 @@ class TourController extends Controller
         $tour_type=$request->get('tour_type');
         $schedule_type=$request->get('schedule_type');
         $range_dates=$request->get('range_dates');
-
 
         $query = DB::table('tours');
 

@@ -24,7 +24,6 @@ class CreateOverviewTable extends Migration
             $table->string('video_title');
             $table->text('video_content');
             $table->longText('about');
-            $table->longText('about_team_intro');
             $table->string('contact_phone');
             $table->string('contact_email');
             $table->string('contact_add');

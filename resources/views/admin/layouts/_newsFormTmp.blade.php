@@ -10,7 +10,7 @@
         <div class="table-cell title">分類</div>
         <div class="table-cell">
             {{
-                Form::select('category', array('note' => 'ＴＣ大記事', 'taichung' => '台中新聞'))
+                Form::select('category', array('note' => '消息文章', 'taichung' => '深旅文章'))
             }}
         </div>
     </div>

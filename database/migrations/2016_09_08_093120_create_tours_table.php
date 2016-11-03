@@ -19,6 +19,8 @@ class CreateToursTable extends Migration
             $table->string('meeting_point');
             $table->integer('peopleNum');
             $table->string('picture');
+            $table->string('picture_list');
+
 
             $table->string('tour_type'); //free or charged
             //--charged column---
@@ -28,9 +30,9 @@ class CreateToursTable extends Migration
             $table->string('schedule_type'); // regularly or once
             $table->dateTime('tour_start_time');
             $table->dateTime('tour_end_time');
+            $table->string('weeks');
             $table->integer('offShelf');
 
-            $table->integer('regular_tour_id'); //foreign key
             $table->integer('location_id'); //foreign key
             $table->integer('booking_id'); //foreign key
 

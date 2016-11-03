@@ -35,30 +35,33 @@
                         {!! Html::image('images/tours/'.$tour->picture,'imgPic',['class'=>'img-rounded','id'=>'img']) !!}
                     </div>
                 </div>
+
+                <div class="table-row">
+                    <div class="table-cell title">列表圖片</div>
+                    <div class="table-cell">
+                        {!! Form::file('picture_list', null,['class'=>'form-control-file']) !!}
+                        {!! Html::image('images/tours/'.$tour->picture_list,'imgPic',['class'=>'img-rounded','id'=>'img']) !!}
+                    </div>
+                </div>
             @include('admin.layouts._tourFormTmp')
 
                 <!-- for once type -->
-                    <div id='once_tour' class="table-row">
-                        <div class="table-cell title">導覽起始時間</div>
-                        <div class="table-cell">
-                            <div id="rangepick" class="row form-inline">
-                                <div class="col-md-12 ">
-                                    {{ Form::text('tour_start_time', date('Y-m-d H:i',strtotime($tour->tour_start_time)), array('id' => 'tour_start_time','class'=>'form-control'))}}
-                                    <span class="glyphicon glyphicon-arrow-right"></span>
-
-                                    {{ Form::text('tour_end_time', date('Y-m-d H:i',strtotime($tour->tour_end_time)), array('id' => 'tour_end_time','class'=>'form-control')) }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
 
                 <div class="table-row">
-                    <div class="table-cell title">內容</div>
+                    <div class="table-cell title">導覽敘述</div>
                     <div class="table-cell">
                         {!! Form::textArea('description', null,['class'=>'mcetextarea']) !!}
                     </div>
                 </div>
+
+                <div class="table-row">
+                    <div class="table-cell title">內容</div>
+                    <div class="table-cell">
+                        {!! Form::textArea('content', null,['class'=>'mcetextarea']) !!}
+                    </div>
+                </div>
+
                 <div class="table-row">
                     <div class="table-cell title">強制下架</div>
                     <div class="table-cell">

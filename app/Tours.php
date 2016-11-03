@@ -9,7 +9,9 @@ class Tours extends Model
     protected $fillable = [
         'title',
         'description',
+        'content',
         'picture',
+        'picture_list',
         'meeting_point',
         'peopleNum',
         'tour_type',
@@ -20,7 +22,7 @@ class Tours extends Model
         'tour_start_time',
         'tour_end_time',
         'offShelf',
-        'regular_tour_id',
+        'weeks',
         'location_id',
         'booking_id',
     ];
@@ -32,7 +34,7 @@ class Tours extends Model
 
     public function regular_tour()
     {
-        return $this->belongsTo('App\RegularTours');
+        return $this->hasMany('App\RegularDates');
     }
 
     public function bookings()

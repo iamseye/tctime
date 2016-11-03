@@ -25,10 +25,11 @@ class creaetTourRequest extends Request
     {
         return [
             'title'=>'required',
-            'description'=>'required',
+            'content'=>'required',
             'meeting_point'=>'required',
             'peopleNum'=>'required',
             'picture'=>'required|image',
+            'picture_list'=>'required|image',
         ];
     }
 }

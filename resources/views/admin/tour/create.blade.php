@@ -24,11 +24,17 @@
                     </div>
                 </div>
                 <div class="table-row">
-                    <div class="table-cell title">圖片</div>
+                    <div class="table-cell title">導覽圖片</div>
                     <div class="table-cell">
                         {!! Form::file('picture', null,['class'=>'form-control-file']) !!}
                         <div id="show_pic"></div>
 
+                    </div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell title">列表圖片</div>
+                    <div class="table-cell">
+                        {!! Form::file('picture_list', null,['class'=>'form-control-file']) !!}
                     </div>
                 </div>
                 @include('admin.layouts._tourFormTmp')
@@ -84,7 +90,7 @@
                         <div id='addWeekArea' >
                             <div class="row form-inline">
                                 <div class="col-sm-2">
-                                    {!! Form::select('week[]', array('Monday' => '星期一', 'Tuesday' => '星期二','Wednesday' => '星期三','Thursday' => '星期四','Friday' => '星期五','Saturday' => '星期六','Sunday' => '星期日'),['class'=>'form-control']) !!}
+                                    {!! Form::select('week[]', array('Mon' => '星期一', 'Tue' => '星期二','Wed' => '星期三','Thu' => '星期四','Fri' => '星期五','Sat' => '星期六','Sun' => '星期日'),['class'=>'form-control']) !!}
                                 </div>
                                 <div class="col-md-4">
                                     {{ Form::time('start_time[]', '00:00:00', array('id' => 'start_time','class'=>'form-control','placeholder'=>'開始時間')) }}
@@ -99,9 +105,16 @@
                 <!-- end regular type -->
 
                 <div class="table-row">
-                    <div class="table-cell title">內容</div>
+                    <div class="table-cell title">導覽敘述</div>
                     <div class="table-cell">
                         {!! Form::textArea('description', null,['class'=>'mcetextarea']) !!}
+                    </div>
+                </div>
+
+                <div class="table-row">
+                    <div class="table-cell title">內容</div>
+                    <div class="table-cell">
+                        {!! Form::textArea('content', null,['class'=>'mcetextarea']) !!}
                     </div>
                 </div>
             </div>

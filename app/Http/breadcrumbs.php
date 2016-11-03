@@ -59,7 +59,7 @@ Breadcrumbs::register('news', function($breadcrumbs)
 Breadcrumbs::register('note', function($breadcrumbs)
 {
     $breadcrumbs->parent('news');
-    $breadcrumbs->push('TC大紀事',url('admin/news/cate/note'));
+    $breadcrumbs->push('消息文章',url('admin/news/cate/note'));
 });
 
 // Index > News > note > edit
@@ -67,7 +67,7 @@ Breadcrumbs::register('note', function($breadcrumbs)
 Breadcrumbs::register('note_edit', function($breadcrumbs)
 {
     $breadcrumbs->parent('note');
-    $breadcrumbs->push('編輯消息');
+    $breadcrumbs->push('編輯文章');
 });
 
 // Index > News > taichung
@@ -75,7 +75,7 @@ Breadcrumbs::register('note_edit', function($breadcrumbs)
 Breadcrumbs::register('taichung', function($breadcrumbs)
 {
     $breadcrumbs->parent('news');
-    $breadcrumbs->push('台中新聞',url('admin/news/cate/taichung'));
+    $breadcrumbs->push('深旅文章',url('admin/news/cate/taichung'));
 });
 
 // Index > News > taichung > edit
@@ -83,7 +83,7 @@ Breadcrumbs::register('taichung', function($breadcrumbs)
 Breadcrumbs::register('taichung_edit', function($breadcrumbs)
 {
     $breadcrumbs->parent('taichung');
-    $breadcrumbs->push('編輯消息');
+    $breadcrumbs->push('編輯文章');
 });
 
 //----messages

@@ -24,8 +24,7 @@ class aboutRequest extends Request
     public function rules()
     {
         return [
-            'about'=>'required',
-            'about_team_intro'=>'required'
+            'about'=>'required'
         ];
     }
 }

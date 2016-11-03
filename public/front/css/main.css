@@ -1,0 +1,574 @@
+body{
+	margin: 0px;
+	padding: 0px;
+	font-family: 'メイリオ',meiryo,'ヒラギノ角ゴ pro w3','hiragino kaku gothic pro','微軟正黑體',sans-serif;
+	font-size: 1em;
+	overflow-x: hidden;
+	background: #fff;
+	font-weight: 100 !important;
+}
+
+input[type="button"]:active {
+	outline: none;
+	border: none;
+}
+
+*:focus {
+	outline:0 !important;
+}
+
+a:hover{
+	text-decoration: none !important;
+}
+
+.clear{
+	clear: both;
+}
+
+.shadow{
+	box-shadow: 0 0 5px rgba(0,0,0,0.25);
+}
+
+.blur{
+	position: fixed !important;
+	top:0;
+	left:0;
+	-webkit-filter:blur(10px) !important;
+	filter:blur(10px) !important;
+}
+
+.lazyLoad{
+	position: relative;
+	top:50px;
+	opacity: 0;
+	transition: .3s;
+}
+
+.lazyLoad.show{
+	top:0px;
+	opacity: 1;
+}
+
+
+h2{
+	position: relative;
+	width: 100%;
+	text-align: center;
+	font-size: 30px;
+	margin: 25px 0 !important;
+}
+
+h2:before{
+	content: '';
+	position: absolute;
+	top:50%;
+	left:0;
+	margin-top: -1px;
+	width: calc(50% - 150px);
+	height: 2px;
+}
+
+h2:after{
+	content: '';
+	position: absolute;
+	top:50%;
+	right:0;
+	margin-top: -1px;
+	width: calc(50% - 150px);
+	height: 2px;
+}
+
+h3{
+	font-size: 20px;
+	margin-bottom: 10px !important;
+}
+
+#wrapper{
+	position: relative;
+	top:0;
+	right:0;
+	transition: .2s;
+}
+
+.wrapper{
+	position: relative;
+	width: 90%;
+	margin: 0 auto;
+	max-width: 1200px;
+}
+
+
+
+
+#BgMenu{
+	position: fixed;
+	top:0;
+	left:-85%;
+	width:80%;
+	height:100%;
+	background: #222;
+	transition: .5s;
+	z-index: 9999;
+}
+
+#BgMenu li{
+	width: calc( 100% - 25px);
+	line-height:50px;
+	padding-right: 25px;
+	text-align: right;
+	border-bottom:#333 1px solid;
+	color: #fff;
+	font-size: 15px;
+}
+
+#BgMenu li.this{
+	color: #07BD5D;
+}
+
+#BgMenu li:hover{
+	background: rgba(255,255,255,0.25);
+}
+
+#BgMenu a:hover{
+	text-decoration: none;
+}
+
+#openMenu{
+	display: none;
+	position: absolute;
+	top:10px;
+	right:calc( 10% - 25px);
+	width:30px;
+	height:5px;
+	background-size: contain;
+	cursor: pointer;
+	background: #000;
+	border-radius: 1px;
+	border:#fff 10px solid;
+	border-top:#fff 20px solid;
+	border-bottom:#fff 20px solid;
+	z-index: 9999999;
+	transition: .3s;
+}
+
+#openMenuBefore{
+	position: absolute;
+	top:-10px;
+	left:0px;
+	height: 5px;
+	width: 100%;
+	background: #000;
+	transition: .3s;
+}
+
+#openMenuAfter{
+	position: absolute;
+	bottom:-10px;
+	left:0px;
+	height: 5px;
+	width: 100%;
+	background: #000;
+	transition: .3s;
+}
+
+.rotateBefore{
+	transform:rotate(45deg);
+	top:0px !important;
+}
+
+.rotateAfter{
+	transform:rotate(-45deg);
+	bottom:0px !important;
+}
+
+#closeMenu{
+	display: none;
+	position: fixed;
+	top:0;
+	right: 0;
+	width: 20%;
+	height: 100%;
+	cursor: pointer;
+	z-index: 99999999999;
+}
+
+
+
+
+
+#map{
+	padding:50px 0 0px; 
+	background: url("/images/mapBg.gif");
+	background-size: cover;
+	color: #2c8397;
+}
+
+.mapWrapper{
+	position:relative;
+	width: 1000px;
+	height: 670px;
+	margin: 0 auto;
+	padding-bottom: 50px;
+}
+
+#mapArea{
+	width: 1000px;
+	height: 625px;
+	margin:0 auto;
+	background: url("/images/map0.png") center top no-repeat;
+	background-size: contain;
+}
+
+#mapArea li{
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	border-radius: 20px;
+	background: #f7e07e;
+	cursor: pointer;
+	margin:0;
+	padding:0;
+	transition:.3s;
+	text-align: center;
+	line-height: 35px;
+	font-size: 15px;
+	font-weight: 900;
+	border:#2e7e91 3px solid;
+}
+
+#mapArea li span{
+	display: none;
+	position: absolute;
+	top:-50px;
+	left: -27.5px;
+	width: 70px;
+	line-height: 35px;
+	color: #f7e180;
+	text-align: center;
+	background:#2e7e91;
+	font-weight: 100;
+	transition:.3s;
+}
+
+#mapArea li:hover span{
+	display: block;
+}
+
+#a01{
+	top:230px;
+	left:515px;
+}
+
+#a02{
+	top:238px;
+	left:490px;	
+}
+
+#a03{
+	top:220px;
+	left:455px;	
+}
+
+#a04{
+	top:275px;
+	left:375px;	
+}
+
+#a05{
+	top:450px;
+	left:515px;	
+}
+
+#mapList{
+	position: absolute;
+	bottom: 50px;
+	left:0px;
+}
+
+#mapList li{
+	display: none;
+	background: #2c8397;
+	overflow: hidden;
+}
+
+#mapList li:nth-child(1){
+	display: block;
+}
+
+#mapList img{
+	float: left;
+	margin: 25px 0 25px 25px;
+	height: 100px;
+	border:#fff 1px solid;
+}
+
+#mapList .title{
+	position: absolute;
+	top:-50px;
+	left:0;
+	padding:10px 15px;
+	background: #2c8397;
+	color: #f7e180;
+	font-size: 15px;
+}
+
+#mapList .moreTour{
+	float: left;
+	display: block;
+	height: 157px;
+	width: 35px;
+	margin-left: 25px;
+	background: #f7e180 url('/images/more.png') center no-repeat;
+}
+
+#map h2:before, #map h2:after{
+	background: #2c8397;
+}
+
+
+
+
+
+
+#footer{
+	background: #2c8397;
+	color: #fff;
+	text-align: left;
+	padding-bottom: 25px;
+	font-size: 15px;
+	border-top:#fcf0bf 10px solid;
+	overflow: hidden;
+}
+
+#footer .wrapper{
+	overflow: hidden;
+}
+
+.footerList{
+	float: left;
+	width: 100%;
+	margin:25px 0;
+	color: #fff;
+	text-align: left;
+}
+
+.contactList{
+	float: left;
+	width: 100%;
+}
+
+.footerList a{
+	color: #fff;
+	transition: .2s;
+}
+
+.footerList li:hover{
+	text-decoration:underline !important;
+}
+
+.footerList li{
+	float: left;
+	letter-spacing: 1px;
+	margin-right: 25px;
+}
+
+#tripadvisor{
+	position: absolute;
+	bottom:0px;
+	right:140px;
+	height: 50px;
+}
+
+#footerLogo{
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	height: 50px;
+}
+
+#copyright{
+	line-height: 50px;
+	width: 100%;
+	text-align: center;
+	color: rgba(255,255,255,0.75);
+	background:#0a4755;
+}
+
+@media screen and (min-width: 1200px){
+
+}
+
+@media screen and (max-width: 979px) {
+
+
+	#map{
+		padding:25px 0 0px; 
+	}
+
+	.mapWrapper{
+		width: 500px;
+		height: 312.5px;
+		padding-bottom: 280px;
+	}
+
+	#mapArea{
+		width: 500px;
+		height: 312.5px;
+	}
+
+	#mapArea li{
+		width: 10px;
+		height: 10px;
+		font-size: 12px;
+		line-height: 17.5px;
+		border-radius: 20px;
+	}
+
+	#a01{
+		top:145px;
+		left:255px;
+	}
+
+	#a02{
+		top:150px;
+		left:240px;	
+	}
+
+	#a03{
+		top:140px;
+		left:222px;	
+	}
+
+	#a04{
+		top:165px;
+		left:185px;	
+	}
+
+	#a05{
+		top:254px;
+		left:250px;	
+	}
+
+	#a06{
+		top:182.5px;
+		left:180px;	
+	}
+
+	#a07{
+		top:177.5px;
+		left:267.5px;	
+	}
+
+	#mapList{
+		bottom: 80px;
+		right:auto;
+		left:37px;
+	}
+
+
+	#mapList img{
+		margin: 20px 0 20px 20px;
+		height: 80px;
+	}
+
+
+	#mapList .moreTour{
+		height: 122px;
+	}
+
+}
+
+@media screen and (max-width: 767px) {
+
+	h1{
+		font-size: 25px;
+		margin-bottom: 10px !important;
+	}
+
+	h2{
+		font-size: 20px;
+		margin-bottom: 10px !important;
+	}
+
+	#social{
+		text-align: left !important;
+	}
+
+	#social li{
+		margin:0 5px;
+	}
+
+	#mainMenu{
+		display: none;
+	}
+
+	.slick-next, .slick-prev{
+		display: none !important;
+	}
+
+	#openMenu{
+		display: block;
+	}
+
+
+
+
+	#map{
+		display: none;
+	}
+
+
+
+
+
+	#footer .wrapper{
+		padding:25px 0;
+	}
+
+	.footerList{
+		width: 100%;
+		margin-left: 0px;
+		margin-bottom: 25px;
+	}
+
+	.footerList ul li{
+		width: 100%;
+		line-height: 35px;
+		border-bottom:rgba(255,255,255,0.25) 1px solid;
+	}
+
+	#footerLogo{
+		display: none;
+	}
+
+	#tripadvisor{
+		position: static;
+		margin-top:10px;
+	}
+
+	#copyright{
+		position: static;
+		float: left;
+		width: 100%;
+		line-height: 25px;
+		padding: 10px 0;
+		text-align: center;
+	}
+
+}
+
+@media screen and (max-width: 480px) {
+
+
+}
+
+@media screen and (max-device-width: 480px) {
+	
+}
+
+
+
+
+
+
+

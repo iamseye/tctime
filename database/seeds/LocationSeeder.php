@@ -12,91 +12,19 @@ class LocationSeeder extends Seeder
     public function run()
     {
         DB::table('locations')->insert([
-            'name' => '中區',
+            'name' => '舊城區 Downtown',
         ]);
         DB::table('locations')->insert([
-            'name' => '東區',
+            'name' => '南屯區 Nantun',
         ]);
         DB::table('locations')->insert([
-            'name' => '南區',
+            'name' => '草悟道區 Calligraphy Path',
         ]);
         DB::table('locations')->insert([
-            'name' => '西區',
+            'name' => '中西區 MidWest',
         ]);
         DB::table('locations')->insert([
-            'name' => '北區',
-        ]);
-        DB::table('locations')->insert([
-            'name' => '北屯區',
-        ]);
-        DB::table('locations')->insert([
-            'name' => '西屯區',
-        ]);
-        DB::table('locations')->insert([
-            'name' => '南屯區',
-        ]);
-        DB::table('locations')->insert([
-            'name' => '太平區',
-        ]);
-        DB::table('locations')->insert([
-            'name' => '大里區',
-        ]);
-        DB::table('locations')->insert([
-            'name' => '霧峰區',
-        ]);
-        DB::table('locations')->insert([
-            'name' => '烏日區',
-        ]);
-        DB::table('locations')->insert([
-            'name' => '豐原區',
-        ]);
-        DB::table('locations')->insert([
-            'name' => '后里區',
-        ]);
-        DB::table('locations')->insert([
-            'name' => '石岡區',
-        ]);
-        DB::table('locations')->insert([
-            'name' => '東勢區',
-        ]);
-        DB::table('locations')->insert([
-            'name' => '和平區',
-        ]);
-        DB::table('locations')->insert([
-            'name' => '新社區',
-        ]);
-        DB::table('locations')->insert([
-            'name' => '潭子區',
-        ]);
-        DB::table('locations')->insert([
-            'name' => '大雅區',
-        ]);
-        DB::table('locations')->insert([
-            'name' => '神岡區',
-        ]);
-        DB::table('locations')->insert([
-            'name' => '大肚區',
-        ]);
-        DB::table('locations')->insert([
-            'name' => '沙鹿區',
-        ]);
-        DB::table('locations')->insert([
-            'name' => '龍井區',
-        ]);
-        DB::table('locations')->insert([
-            'name' => '梧棲區',
-        ]);
-        DB::table('locations')->insert([
-            'name' => '清水區',
-        ]);
-        DB::table('locations')->insert([
-            'name' => '大甲區',
-        ]);
-        DB::table('locations')->insert([
-            'name' => '外埔區',
-        ]);
-        DB::table('locations')->insert([
-            'name' => '大安區',
+            'name' => '霧峰區 Wufang',
         ]);
 
     }
