@@ -213,7 +213,7 @@
 <script id="myTmpl" type="text/x-jsrender">
 <div class="row form-inline">
     <div class="col-sm-2">
-     {!! Form::select('week[]', array('Mon' => '星期一', 'Ｔue' => '星期二','Wed' => '星期三','Thu' => '星期四','Fri' => '星期五','Sat' => '星期六','Sun' => '星期日'),['class'=>'form-control']) !!}
+     {!! Form::select('week[]', array('Mon' => '星期一', 'Tue' => '星期二','Wed' => '星期三','Thu' => '星期四','Fri' => '星期五','Sat' => '星期六','Sun' => '星期日'),['class'=>'form-control']) !!}
     </div>
     <div class="col-md-4">
         {{ Form::time('start_time[]', '00:00:00', array('id' => 'start_time','class'=>'form-control','placeholder'=>'開始時間')) }}

@@ -83,18 +83,30 @@ class InfoController extends Controller
         return redirect('admin/overview/info');
     }
 
-    public function updateIndexInfo(indexInfoRequest $request,$id)
+    public function updateIndexInfo(Request $request,$id)
     {
-        $youLink=$request->get('video_path');
 
-        if(strpos($youLink, 'https://www.youtube.com/watch') === false)
-        {
-            $this->failMsg($request,'please upload right youtube link');
+        $destinationPath='';
+        if ($request->hasFile('video_path')) {
 
+            $file = $request->file('video_path');
+
+            if ($file->isValid()) {
+                $extension=$file->getClientOriginalExtension();
+
+                $fileName = 'test2.'.$extension;
+                $destinationPath = base_path() . '/public/video/';
+                $file->move($destinationPath, $fileName);
+                $overview=Overview::find($id);
+                $overview->video_path=$fileName;
+                $overview->save();
+
+                $this->succMsg($request,'Data updated');
+
+            }
         }
-        else {
-            Overview::find($id)->update($request->all());
-            $this->succMsg($request,'Data updated');
+        else{
+            $this->failMsg($request,'檔案上傳失敗');
         }
 
         return redirect('admin/overview/indexInfo');

@@ -15,13 +15,13 @@ class AgeSeeder extends Seeder
             'range' => 'under 18',
         ]);
         DB::table('ages')->insert([
-            'range' => '19~30',
+            'range' => '18~35',
         ]);
         DB::table('ages')->insert([
-            'range' => '31~45',
+            'range' => '35~65',
         ]);
         DB::table('ages')->insert([
-            'range' => 'above 45',
+            'range' => 'above 65',
         ]);
     }
 }

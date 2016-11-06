@@ -21,7 +21,7 @@ class CreateBookingsTable extends Migration
             $table->integer('paid');
             $table->integer('situation');
             $table->integer('tours_id');
-            $table->integer('age_id');
+            $table->integer('ages_id');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -19,6 +19,13 @@ class BookingController extends Controller
     {
         $bookings=Bookings::orderBy('situation', 'asc')->orderBy('created_at', 'desc')->paginate(10);
 
+        foreach($bookings as $book)
+        {
+            $tour_title=Bookings::findOrFail($book->id)->tour->title;
+            $book->tour_title=$tour_title;
+
+        }
+
         return view('admin.booking.index',compact('bookings'));
     }
 
@@ -28,6 +35,19 @@ class BookingController extends Controller
         $booking->tour_title=$booking->tour->title;
         $booking->age_range=$booking->age->range;
         $booking->tour_type=$booking->tour->tour_type;
+
+        if($booking->tour->schedule_type=='regular')
+        {
+            $book_date=$booking->regular_tour->date;
+        }
+        else
+        {
+            $startHourMin = date_format(date_create($booking->tour->tour_start_time), 'Y/m/d H:i');
+            $endHourMin = date_format(date_create($booking->tour->tour_end_time), 'Y/m/d H:i');
+            $book_date=$startHourMin . ' - ' . $endHourMin;
+        }
+
+        $booking->booking_date=$book_date;
 
         return view('admin.booking.edit',compact('booking'));
     }
@@ -62,6 +82,12 @@ class BookingController extends Controller
 
         $bookings=$query->orderBy('bookings.situation', 'asc')->orderBy('bookings.created_at', 'desc')->paginate(10);
 
+        foreach($bookings as $book)
+        {
+            $tour_title=Bookings::findOrFail($book->id)->tour->title;
+            $book->tour_title=$tour_title;
+
+        }
 
         return view('admin.booking.index',compact('bookings'));
     }

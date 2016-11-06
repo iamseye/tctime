@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Ages;
 use App\Locations;
+use App\RegularDates;
 use App\Tours;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -68,12 +70,6 @@ class tourController extends Controller
 
         return view('front.tour.show',compact('tour'));
 
-    }
-
-    public function booking (Request $request)
-    {
-        $tour_id=$request->tour_id;
-        dd($tour_id);
     }
 
     public function search(Request $request)

@@ -8,6 +8,8 @@
 
 @section('content')
 
+    @include('layouts._errorMsg')
+
     <div id="tour">
         <div class="tourSearch">
             <div class="wrapper">
@@ -35,6 +37,8 @@
             </ul>
         </div>
     </div>
+
+    @include('front.layouts._map')
 
 @stop
 

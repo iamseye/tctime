@@ -33,7 +33,7 @@
                     <div class="table-cell">姓名</div>
                     <div class="table-cell">電話</div>
                     <div class="table-cell">預定導覽</div>
-                    <div class="table-cell">預定時間</div>
+                    <div class="table-cell">下訂時間</div>
                     <div class="table-cell">狀態</div>
                     <div class="table-cell">操作</div>
                 </div>
@@ -48,7 +48,7 @@
                             {!! $booking->phone!!}
                         </div>
                         <div class="table-cell">
-                            {!! $booking->name !!}
+                            {!! $booking->tour_title !!}
                         </div>
                         <div class="table-cell">
                             {!! $booking->created_at !!}

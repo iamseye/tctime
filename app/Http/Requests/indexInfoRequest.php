@@ -24,9 +24,8 @@ class indexInfoRequest extends Request
     public function rules()
     {
         return [
-            'video_path'=>'required',
-            'video_title'=>'required',
-            'video_content'=>'required'
+            'video_path'=>'mimes:mp4,x-flv,x-mpegURL,MP2T,3gpp,quicktime,x-msvideo,x-ms-wmv',
+
         ];
     }
 }

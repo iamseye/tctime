@@ -28,6 +28,13 @@
 
                 </div>
                 <div class="table-row">
+                    <div class="table-cell title">預定日期</div>
+                    <div class="table-cell">
+                        {!! $booking->booking_date !!}
+                    </div>
+
+                </div>
+                <div class="table-row">
                     <div class="table-cell title">電話</div>
                     <div class="table-cell">
                         {!! $booking->phone !!}
@@ -53,7 +60,7 @@
                     </div>
                 </div>
                 <div class="table-row">
-                    <div class="table-cell title">預定時間</div>
+                    <div class="table-cell title">下訂時間</div>
                     <div class="table-cell">
                         {!! $booking->created_at !!}
                     </div>

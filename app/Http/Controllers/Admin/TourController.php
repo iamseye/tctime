@@ -70,8 +70,6 @@ class TourController extends Controller
             $tour_end_date_time=strtotime($end_date);
             $tour_start_date_time=strtotime($start_date);
 
-
-
             //regular weeks and time
             $weeks=$request->get('week');
             $weeks_start=$request->get('start_time');
@@ -79,9 +77,9 @@ class TourController extends Controller
 
             $weekStr='';
 
+
             for($j=0;$j<sizeof($weeks);$j++)
             {
-
                 for($i = strtotime($weeks[$j], $tour_start_date_time); $i <= $tour_end_date_time; $i = strtotime('+1 week', $i))
                 {
                     $regular_week_date= date('Y-m-d', $i);
@@ -98,6 +96,7 @@ class TourController extends Controller
                     $regular_dates->save();
 
                 }
+
                 $weekStr=$weekStr.$weeks[$j].',';
             }
 
@@ -158,7 +157,20 @@ class TourController extends Controller
         $tour=Tours::findorFail($id);
         $items = Locations::pluck('name', 'id');
 
-        return view('admin.tour.edit',compact('tour','items'));
+        if($tour->schedule_type=='regular')
+        {
+            $regular_dates=$tour->regular_tour;
+            $once_date='';
+        }
+        else
+        {
+            $regular_dates='';
+            $startHourMin = date_format(date_create($tour->tour_start_time), 'Y/m/d H:i');
+            $endHourMin = date_format(date_create($tour->tour_end_time), 'Y/m/d H:i');
+            $once_date=$startHourMin . ' - ' . $endHourMin;
+        }
+
+        return view('admin.tour.edit',compact('tour','items','regular_dates','once_date'));
     }
 
     public function update(Request $request, $id)

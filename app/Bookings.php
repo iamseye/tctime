@@ -12,16 +12,24 @@ class Bookings extends Model
         'phone',
         'email',
         'paid',
-        'situation'
+        'situation',
+        'tours_id',
+        'ages_id',
+        'regular_dates_id'
     ];
 
     public function age()
     {
-        return $this->belongsTo('App\Ages');
+        return $this->belongsTo('App\Ages','ages_id');
     }
 
     public function tour()
     {
         return $this->belongsTo('App\Tours','tours_id');
+    }
+
+    public function regular_tour()
+    {
+        return $this->belongsTo('App\RegularDates','regular_dates_id');
     }
 }

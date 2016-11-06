@@ -67,10 +67,10 @@
 
     <script>
         $( document ).ready(function(){
-            $times_seril_array=$('#regular_times').val();
-            $time_array=JSON.parse($times_seril_array);
 
             $("#regular_dates").change(function () {
+                $times_seril_array=$('#regular_times').val();
+                $time_array=JSON.parse($times_seril_array);
                 var regular_dates_id = this.value;
                 console.log(regular_dates_id);
                 $('#showTime').text($time_array[regular_dates_id]);

@@ -2,8 +2,6 @@
 
 @section('content')
 
-
-
         <div id="deatailCorss">
             {!! Breadcrumbs::render('messages_detail') !!}
 

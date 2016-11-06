@@ -47,6 +47,19 @@
 
                 <!-- for once type -->
 
+                <div class="table-row">
+                    <div class="table-cell title">導覽日期</div>
+                    <div class="table-cell">
+                        @if($tour->schedule_type=='regular')
+                            @foreach($regular_dates as $date)
+                                {{$date->date}} <br>
+                            @endforeach
+                        @else
+                            {{$once_date}}
+                        @endif
+
+                    </div>
+                </div>
 
                 <div class="table-row">
                     <div class="table-cell title">導覽敘述</div>
