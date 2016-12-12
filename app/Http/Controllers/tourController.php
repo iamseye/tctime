@@ -51,7 +51,7 @@ class tourController extends Controller
 
             $tour_regular_dates=Tours::findOrFail($id)->regular_tour;
 
-            $datesOpt=array(''=>'-請選擇-');
+            $datesOpt=array();
 
             $regular_times=array();
             foreach($tour_regular_dates as $date)

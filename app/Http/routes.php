@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'indexController@index');
-Route::get('/about', 'infoController@about');
+Route::get('/about', 'InfoController@about');
 Route::get('/news', 'newsController@news');
 Route::get('/blog', 'newsController@article');
 Route::get('/news/{id}', 'newsController@show');
